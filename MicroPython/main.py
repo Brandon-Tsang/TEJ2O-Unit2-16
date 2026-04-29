@@ -71,11 +71,13 @@ radio.on()
 radio.config(group=153)
 display.show(Image.HAPPY)
 
-# main loop
+# button pressed a
 while True:
     if button_a.was_pressed():
         while True:
             display.show(Image.TRIANGLE)
             distance = sonar.get_distance_cm()
-            if distance < 10 and distance > -1:
-                radio.send("Too close")
+            # distance message
+            if distance < 10:
+                if distance > -1:
+                    radio.send("Too close!")
